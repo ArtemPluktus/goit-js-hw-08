@@ -8,10 +8,10 @@ const formData = {};
 
 lastInput();
 
-form.addEventListener(`input`, (e) => {
+form.addEventListener(`input`, throttle((e) => {
     formData[e.target.name] = e.target.value;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-});
+}, 500));
 
 form.addEventListener(`submit`, (e) => {
     e.preventDefault();
